@@ -3,7 +3,7 @@ package com.ksalhab.caragency.layers.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data //Equivalent to @Getter @Setter @RequiredArgsConstructor @ToString @EqualsAndHashCode.
+@Data
 @NoArgsConstructor
 public class Car {
 	private Integer year;
