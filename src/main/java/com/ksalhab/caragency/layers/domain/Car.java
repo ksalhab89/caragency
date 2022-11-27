@@ -11,5 +11,5 @@ public class Car {
 	private Integer horsePower;
 	private Boolean electric;
 	private Boolean used;
-	private Integer seats;
+	private Integer numberOfSeats;
 }
