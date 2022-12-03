@@ -5,17 +5,22 @@ import com.ksalhab.caragency.layers.repository.CarRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.event.ApplicationContextEvent;
 import org.springframework.context.event.EventListener;
-import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 @AllArgsConstructor
-public class ApplicationReady {
+public class ApplicationReadyRepoExamples {
 
-	private CarRepository repository;
+	private CarRepository carRepository;
 
 	@EventListener(ApplicationContextEvent.class)
 	public void doSomeEventOnce() {
-		Car car = repository.getCar(2L);
-		System.out.println(car.toString());
+		Car car = carRepository.getCar(2L);
+		System.out.println(car);
+		Car carToBeCreated = new Car(1996, "Civic", 100, false, true, 5);
+		Car addedCar = carRepository.addCar(carToBeCreated);
+		System.out.println(addedCar);
+		addedCar.setYear(1997);
+		carRepository.updateCar(18L, addedCar);
+		System.out.println(addedCar);
 	}
 }
