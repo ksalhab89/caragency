@@ -1,4 +1,4 @@
-package com.ksalhab.caragency.layers.errorHandling;
+package com.ksalhab.caragency.layers.errorhandling;
 
 import com.ksalhab.caragency.layers.exceptions.ApplicationException;
 import com.ksalhab.caragency.layers.exceptions.DataNotFoundException;

@@ -1,4 +1,4 @@
-package com.ksalhab.caragency.layers.errorHandling;
+package com.ksalhab.caragency.layers.errorhandling;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
