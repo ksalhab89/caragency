@@ -10,12 +10,26 @@ import lombok.AllArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor
 public class CarService {
 
 	private CarRepository carRepository;
 	private CarConverter carConverter;
+
+	public CarDTO getCar(Long id) {
+		return carConverter.fromDomain(carRepository.getCar(id));
+	}
+
+	public List<CarDTO> getAllCars() {
+		return carRepository.getAllCars()
+				       .stream()
+				       .map(car -> carConverter.fromDomain(car))
+				       .collect(Collectors.toList());
+	}
 
 	public CarDTO addCar(@NotNull CarDTO carDTO) {
 		checkYear(carDTO);
