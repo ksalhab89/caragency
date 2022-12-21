@@ -1,11 +1,11 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.7.5'
+    id 'org.springframework.boot' version "$SPRING_BOOT_VER"
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
 group = 'com.ksalhab'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0-SNAPSHOT'
 sourceCompatibility = '11'
 
 configurations {
@@ -19,14 +19,19 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    implementation 'org.postgresql:postgresql:42.3.8'
-    implementation 'org.jetbrains:annotations:23.0.0'
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    implementation("org.springframework.boot:spring-boot-starter-web:$SPRING_BOOT_VER") {
+        exclude group: 'org.yaml', module: 'snakeyaml'
+
+    }
+    implementation group: 'org.yaml', name: 'snakeyaml', version: '1.33'
+
+    implementation "org.springframework.boot:spring-boot-starter-jdbc:$SPRING_BOOT_VER"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:$SPRING_BOOT_VER"
+    developmentOnly "org.springframework.boot:spring-boot-devtools:$SPRING_BOOT_VER"
+    implementation 'org.postgresql:postgresql:42.5.1'
+    implementation 'org.jetbrains:annotations:23.1.0'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
 tasks.named('test') {
