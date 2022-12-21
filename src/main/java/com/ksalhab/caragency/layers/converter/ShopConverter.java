@@ -2,7 +2,9 @@ package com.ksalhab.caragency.layers.converter;
 
 import com.ksalhab.caragency.layers.domain.Shop;
 import com.ksalhab.caragency.layers.dto.ShopDTO;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ShopConverter {
 	public ShopDTO fromDomain(Shop shop) {
 		return new ShopDTO(shop.getLocation(), shop.getInventory(), shop.getCurrentlyOpen(),
