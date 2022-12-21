@@ -29,6 +29,10 @@ public class CarRepository {
 		}
 	}
 
+	public List<Car> getAllCars() {
+		return jdbcTemplate.query("select * from cars", rowMapper);
+	}
+
 	public Car addCar(Car car) {
 		GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
 
@@ -72,10 +76,6 @@ public class CarRepository {
 		preparedStatement.setBoolean(4, car.getUsed());
 		preparedStatement.setBoolean(5, car.getUsed());
 		preparedStatement.setInt(6, car.getNumberOfSeats());
-	}
-
-	public List<Car> getAllCars() {
-		return jdbcTemplate.query("select * from cars", rowMapper);
 	}
 
 }

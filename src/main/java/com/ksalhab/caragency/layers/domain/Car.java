@@ -15,5 +15,3 @@ public class Car {
 	private Boolean used;
 	private Integer numberOfSeats;
 }
-
-

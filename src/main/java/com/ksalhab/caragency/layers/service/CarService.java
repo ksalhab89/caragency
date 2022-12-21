@@ -42,8 +42,8 @@ public class CarService {
 		checkIfExists(id);
 		checkYear(carDTO);
 
-		Car carToAdd = carRepository.updateCar(id, carConverter.fromDTO(carDTO));
-		return carConverter.fromDomain(carToAdd);
+		Car updateCar = carRepository.updateCar(id, carConverter.fromDTO(carDTO));
+		return carConverter.fromDomain(updateCar);
 	}
 
 	public void deleteCar(Long id) {
@@ -59,9 +59,7 @@ public class CarService {
 
 	private void checkIfExists(Long id) {
 		Car car = carRepository.getCar(id);
-		if (car != null) {
-			System.out.println("exists");
-		} else {
+		if (car == null) {
 			throw new DataNotFoundException(String.format("Car with id %s not found", id));
 		}
 	}
