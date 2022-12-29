@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Objects;
 
 @Repository
@@ -26,6 +27,10 @@ public class CarRepository {
 		} catch (EmptyResultDataAccessException e) {
 			return null;
 		}
+	}
+
+	public List<Car> getAllCars() {
+		return jdbcTemplate.query("select * from cars", rowMapper);
 	}
 
 	public Car addCar(Car car) {

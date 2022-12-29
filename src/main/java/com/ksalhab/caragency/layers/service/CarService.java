@@ -10,12 +10,26 @@ import lombok.AllArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor
 public class CarService {
 
 	private CarRepository carRepository;
 	private CarConverter carConverter;
+
+	public CarDTO getCar(Long id) {
+		return carConverter.fromDomain(carRepository.getCar(id));
+	}
+
+	public List<CarDTO> getAllCars() {
+		return carRepository.getAllCars()
+				       .stream()
+				       .map(car -> carConverter.fromDomain(car))
+				       .collect(Collectors.toList());
+	}
 
 	public CarDTO addCar(@NotNull CarDTO carDTO) {
 		checkYear(carDTO);
@@ -28,8 +42,8 @@ public class CarService {
 		checkIfExists(id);
 		checkYear(carDTO);
 
-		Car carToAdd = carRepository.updateCar(id, carConverter.fromDTO(carDTO));
-		return carConverter.fromDomain(carToAdd);
+		Car updateCar = carRepository.updateCar(id, carConverter.fromDTO(carDTO));
+		return carConverter.fromDomain(updateCar);
 	}
 
 	public void deleteCar(Long id) {
@@ -45,9 +59,7 @@ public class CarService {
 
 	private void checkIfExists(Long id) {
 		Car car = carRepository.getCar(id);
-		if (car != null) {
-			System.out.println("exists");
-		} else {
+		if (car == null) {
 			throw new DataNotFoundException(String.format("Car with id %s not found", id));
 		}
 	}

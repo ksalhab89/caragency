@@ -9,11 +9,10 @@ import java.time.Instant;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CarShop {
+public class Shop {
 	private String location;
-	private Instant openSince;
 	private Integer inventory;
 	private Boolean currentlyOpen;
 	private Integer numberOfEmployees;
-
+	private Instant openSince;
 }
