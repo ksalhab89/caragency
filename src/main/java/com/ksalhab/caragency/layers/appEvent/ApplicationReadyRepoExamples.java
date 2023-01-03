@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.context.event.ApplicationContextEvent;
 import org.springframework.context.event.EventListener;
 
-//@Component
 @AllArgsConstructor
 public class ApplicationReadyRepoExamples {
 
