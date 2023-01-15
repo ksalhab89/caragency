@@ -1,7 +1,7 @@
 package com.ksalhab.caragency.layers.appEvent;
 
 import com.ksalhab.caragency.layers.domain.Car;
-import com.ksalhab.caragency.layers.repository.CarRepository;
+import com.ksalhab.caragency.layers.repository.jdbcRepositories.CarRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.event.ApplicationContextEvent;
 import org.springframework.context.event.EventListener;
