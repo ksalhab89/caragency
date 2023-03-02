@@ -1,4 +1,4 @@
-package com.ksalhab.caragency.layers.repository;
+package com.ksalhab.caragency.layers.repository.jdbcRepositories;
 
 import com.ksalhab.caragency.layers.domain.Shop;
 import lombok.AllArgsConstructor;
@@ -7,7 +7,6 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -15,7 +14,6 @@ import java.sql.Time;
 import java.util.List;
 import java.util.Objects;
 
-@Repository
 @AllArgsConstructor
 public class ShopRepository {
 

@@ -21,11 +21,11 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web:$SPRING_BOOT_VER") {
         exclude group: 'org.yaml', module: 'snakeyaml'
-
     }
     implementation group: 'org.yaml', name: 'snakeyaml', version: '1.33'
 
     implementation "org.springframework.boot:spring-boot-starter-jdbc:$SPRING_BOOT_VER"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:$SPRING_BOOT_VER"
     testImplementation "org.springframework.boot:spring-boot-starter-test:$SPRING_BOOT_VER"
     developmentOnly "org.springframework.boot:spring-boot-devtools:$SPRING_BOOT_VER"
     implementation 'org.postgresql:postgresql:42.5.1'

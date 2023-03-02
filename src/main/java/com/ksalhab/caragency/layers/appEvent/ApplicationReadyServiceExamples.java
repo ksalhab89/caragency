@@ -8,7 +8,6 @@ import org.springframework.context.event.ApplicationContextEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-@Component
 @AllArgsConstructor
 public class ApplicationReadyServiceExamples {
 	private CarService carService;
